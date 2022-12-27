@@ -4,6 +4,7 @@ import SearchPanel from "../search-panel/search-panel";
 import ItemStatusFilter from "../item-status-filter/item-status-filter";
 import TodoList from "../todo-list/todo-list";
 import './app.css'
+import ItemAddForm from "../item-add-form/item-add-form";
 
 export default class App extends Component{
     constructor() {
@@ -29,6 +30,21 @@ export default class App extends Component{
             };
         })
     }
+
+    addItem = (text) => {
+        const newItem = {
+            label: text,
+            important: false,
+            id: this.state.todoData.length + 1
+        }
+
+        this.setState(({todoData}) => {
+            return {
+                todoData: [...todoData, newItem]
+            }
+        })
+    }
+
     render(){
         return(
             <div className='todo-app'>
@@ -41,6 +57,7 @@ export default class App extends Component{
                     todos={this.state.todoData}
                     onDeleted={(id) => this.deleteItem(id)}
                 />
+                <ItemAddForm addItem={this.addItem}/>
             </div>
         )
     }
