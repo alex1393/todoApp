@@ -1,21 +1,22 @@
-import React, {Component} from "react";
-import './item-add-form.css';
-export default class ItemAddForm extends Component{
+import React, { Component } from "react";
+import "./item-add-form.css";
+export default class ItemAddForm extends Component {
+  constructor() {
+    super();
+  }
+  render() {
+    const { addItem } = this.props;
 
-    constructor() {
-        super();
-    }
-    render(){
-        const {addItem} = this.props;
-
-        return(
-            <div className="item-add-form">
-                <button
-                    type='button'
-                    className="btn btn-outline-secondary"
-                    onClick={()=> addItem('hello')}
-                >Add Item</button>
-            </div>
-        )
-    }
+    return (
+      <div className="item-add-form">
+        <button
+          type="button"
+          className="btn btn-outline-secondary"
+          onClick={() => addItem("hello")}
+        >
+          Add Item
+        </button>
+      </div>
+    );
+  }
 }
