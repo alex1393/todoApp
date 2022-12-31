@@ -7,10 +7,6 @@ import "./app.css";
 import ItemAddForm from "../item-add-form/item-add-form";
 
 export default class App extends Component {
-  constructor() {
-    super();
-  }
-
   maxId = 100;
   state = {
     todoData: [
