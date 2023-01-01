@@ -64,6 +64,10 @@ export default class App extends Component {
     this.toggleProperty("todoData", id, "important");
   };
 
+  searchElementByText = (text) => {
+    console.log("Done");
+  };
+
   render() {
     const { todoData } = this.state;
     const doneCount = todoData.filter((el) => el.done).length;
@@ -73,7 +77,7 @@ export default class App extends Component {
       <div className="todo-app">
         <AppHeader toDo={toDoCount} done={doneCount} />
         <div className="top-panel d-flex">
-          <SearchPanel />
+          <SearchPanel searchElementByText={this.searchElementByText} />
           <ItemStatusFilter />
         </div>
         <TodoList
