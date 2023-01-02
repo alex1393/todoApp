@@ -5,23 +5,19 @@ export default class SearchPanel extends Component {
     searchText: "",
   };
 
+  onTextChange = (e) => {
+    this.props.searchElementByText(e.target.value);
+    this.setState({
+      searchText: e.target.value,
+    });
+  };
+
   render() {
     return (
       <input
         className="search-input"
         placeholder={"type to search"}
-        onChange={(e) => {
-          const newValue = e.target.value;
-          console.log(e.target.value);
-          console.log(this.state.searchText);
-          this.setState(() => {
-            return {
-              searchText: newValue,
-            };
-          });
-          this.props.searchElementByText(this.state.searchText);
-          console.log(this.state.searchText);
-        }}
+        onChange={this.onTextChange}
         value={this.state.searchText}
       />
     );

@@ -65,7 +65,16 @@ export default class App extends Component {
   };
 
   searchElementByText = (text) => {
-    console.log("Done");
+    // let newTodoData = [];
+    this.state.todoData.map((el) => {
+      if (el.label.search(text) >= 0) {
+        // newTodoData.push(el);
+        el.style = { color: "red" };
+      }
+    });
+    // this.setState({
+    //   todoData: newTodoData,
+    // });
   };
 
   render() {
