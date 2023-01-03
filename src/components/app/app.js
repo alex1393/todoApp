@@ -22,6 +22,7 @@ export default class App extends Component {
       important: false,
       done: false,
       id: this.maxId++,
+      styleDisplay: "initial",
     };
   }
   deleteItem = (id) => {
@@ -65,16 +66,20 @@ export default class App extends Component {
   };
 
   searchElementByText = (text) => {
-    // let newTodoData = [];
+    let updatedTodoData = [];
     this.state.todoData.map((el) => {
       if (el.label.search(text) >= 0) {
-        // newTodoData.push(el);
-        el.style = { color: "red" };
+        el.styleDisplay = "block";
+      } else {
+        el.styleDisplay = "none";
       }
+      updatedTodoData.push(el);
     });
-    // this.setState({
-    //   todoData: newTodoData,
-    // });
+    this.setState(({ todoData }) => {
+      return {
+        todoData: updatedTodoData,
+      };
+    });
   };
 
   render() {

@@ -3,9 +3,13 @@ import TodoListItem from "../todo-list-item/todo-list-item";
 import "./todo-list.css";
 const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
   const elements = todos.map((item) => {
-    const { id, ...itemProps } = item;
+    const { id, styleDisplay, ...itemProps } = item;
     return (
-      <li className="list-group-item" key={id}>
+      <li
+        className="list-group-item"
+        key={id}
+        style={{ display: styleDisplay }}
+      >
         <TodoListItem
           {...itemProps}
           onDeleted={() => onDeleted(id)}
