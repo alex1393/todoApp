@@ -5,11 +5,7 @@ const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
   const elements = todos.map((item) => {
     const { id, styleDisplay, ...itemProps } = item;
     return (
-      <li
-        className="list-group-item"
-        key={id}
-        style={{ display: styleDisplay }}
-      >
+      <li className="list-group-item" key={id}>
         <TodoListItem
           {...itemProps}
           onDeleted={() => onDeleted(id)}
